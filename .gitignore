@@ -1,0 +1,82 @@
+# ==============================================================================
+# 1. SECRETS, API KEYS, WALLET CREDENTIALS & PASSWORDS (CRITICAL)
+# ==============================================================================
+# Environment files (OpenAI, Infura, Alchemy, etc.)
+.env
+.env.*
+!.env.example
+*.env
+
+# Ethereum keystores, raw private keys & mnemonics
+*keystore*
+*wallet*.json
+*credentials*
+*.key
+*.pem
+*.pfx
+*.p12
+secrets.json
+secret.txt
+mnemonic.txt
+seed.txt
+private_key*
+
+# Spring Boot local/secret profiles
+application-local.yml
+application-local.properties
+application-secret.yml
+application-secret.properties
+
+# Logs & crash dumps (prevents accidental secret leaks in stack traces)
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ==============================================================================
+# 2. HARDHAT & SMART CONTRACTS
+# ==============================================================================
+cache/
+artifacts/
+typechain/
+typechain-types/
+
+# ==============================================================================
+# 3. NODE.JS & REACT FRONTEND
+# ==============================================================================
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# ==============================================================================
+# 4. JAVA, SPRING BOOT & MAVEN
+# ==============================================================================
+target/
+*.class
+*.jar
+*.war
+*.ear
+.mvn/wrapper/maven-wrapper.jar
+
+# ==============================================================================
+# 5. IDES, EDITORS & OS METADATA
+# ==============================================================================
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+out/
+
+# Eclipse
+.project
+.classpath
+.settings/
+bin/
+
+# Visual Studio Code
+.vscode/
+
+# Operating system files
+.DS_Store
+Thumbs.db
