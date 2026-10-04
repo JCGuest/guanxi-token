@@ -32,9 +32,17 @@
 	</properties>
 	<dependencies>
 
-		<dependency>
+		<!-- Web3j Core -->
+        <dependency>
             <groupId>org.web3j</groupId>
             <artifactId>core</artifactId>
+            <version>4.10.3</version>
+        </dependency>
+
+        <!-- Web3j Contracts (contains the ERC20 wrapper) -->
+        <dependency>
+            <groupId>org.web3j</groupId>
+            <artifactId>contracts</artifactId>
             <version>4.10.3</version>
         </dependency>
 
