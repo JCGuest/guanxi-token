@@ -1,6 +1,7 @@
 package com.guanxi.backend.tools;
 
 import com.guanxi.backend.service.BlockchainService;
+import com.guanxi.backend.service.EtherscanService;
 import org.springframework.ai.tool.annotation.Tool;
 import org.springframework.stereotype.Component;
 
@@ -10,9 +11,11 @@ import java.math.BigDecimal;
 public class BlockchainTools {
 
     private final BlockchainService blockchainService;
+    private final EtherscanService etherscanService;
 
-    public BlockchainTools(BlockchainService blockchainService) {
+    public BlockchainTools(BlockchainService blockchainService, EtherscanService etherscanService) {
         this.blockchainService = blockchainService;
+        this.etherscanService = etherscanService;
     }
 
     @Tool(description = "Check the Guanxi (GXI) token balance for a specified Ethereum wallet address.")
@@ -34,5 +37,15 @@ public class BlockchainTools {
         } catch (Exception e) {
             return "Transfer failed: " + e.getMessage();
         }
+    }
+
+    @Tool(description = "Query Etherscan for recent Guanxi (GXI) token transfer transactions for a given wallet address.")
+    public String getRecentTransactions(String walletAddress) {
+        return etherscanService.getTokenTransferEvents(walletAddress);
+    }
+
+    @Tool(description = "Query Etherscan for the total on-chain supply of Guanxi (GXI) tokens.")
+    public String getTotalSupply() {
+        return etherscanService.getTotalSupply();
     }
 }
